@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[]args){
-        AirportHenriCoanda Airport = AirportHenriCoanda.getInstance("Calea Bucurestilor nr.224 E");
+        AirportHenryCoanda Airport = AirportHenryCoanda.getInstance("Calea Bucurestilor nr.224 E");
         String path = "C:\\Users\\iorda\\IdeaProjects\\PAO Project\\src\\Entities\\data.txt";
         Airport.addDataBase(path);
 
