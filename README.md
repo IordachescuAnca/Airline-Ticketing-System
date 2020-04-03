@@ -26,9 +26,9 @@ Proiectul este compus din 14 clasele si, in cele ce urmeaza, o sa prezint ierarh
   - unavailableSeats;
   - mostPopularandRecentFlight etc.
   
-  - **clasa Main** - in cadru acesteia creez un meniu atat pentru angajati, cat si pentru clienti, delimitand accesul doar la anumite interogari pentru fiecare entitate.
+- **clasa Main** - in cadru acesteia creez un meniu atat pentru angajati, cat si pentru clienti, delimitand accesul doar la anumite interogari pentru fiecare entitate.
   
-  - **clasa SortByDate** - clasa care implementeaza **Comparator<Flight>** - utilizata pentru a tine sortata lista de zboruri din clasa AirportHenriCoanda.
+- **clasa SortByDate** - clasa care implementeaza **Comparator<Flight>** - utilizata pentru a tine sortata lista de zboruri din clasa AirportHenriCoanda.
   
   Colectiile utilizate sunt **Map** si **List**, a caror utilizare am descris-o mai sus. Fiecare clasa contine atribute protected/private/public, sunt definiti constructori, metode de acces(setteri si getteri), precum si alte metode care m-au ajutat la designul sistemului de gestiune. 
   
