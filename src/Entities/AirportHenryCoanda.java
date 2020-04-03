@@ -4,24 +4,24 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class AirportHenriCoanda { // SINGLETON
-    private static AirportHenriCoanda singleInstance = null;
+public class AirportHenryCoanda { // SINGLETON
+    private static AirportHenryCoanda singleInstance = null;
     private List<Employee> employees;
     private List<Flight> flights;
     private List<Client> clients;
     private Map<Airplane, Integer> runways;
     private String address;
 
-    private AirportHenriCoanda(String address){
+    private AirportHenryCoanda(String address){
         this.employees = new ArrayList<Employee>();
         this.flights = new ArrayList<Flight>();
         this.clients = new ArrayList<Client>();
         this.runways = new HashMap<Airplane, Integer>();
     }
 
-    public static AirportHenriCoanda getInstance(String address){
+    public static AirportHenryCoanda getInstance(String address){
         if(singleInstance == null){
-            singleInstance = new AirportHenriCoanda(address);
+            singleInstance = new AirportHenryCoanda(address);
         }
         return singleInstance;
     }
