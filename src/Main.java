@@ -1,5 +1,4 @@
-package Entities;
-
+import Entities.Client;
 import Service.*;
 
 import java.util.*;
