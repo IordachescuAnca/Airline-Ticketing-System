@@ -32,4 +32,6 @@ Proiectul este compus din 14 clasele si, in cele ce urmeaza, o sa prezint ierarh
   
   Colectiile utilizate sunt **Map** si **List**, a caror utilizare am descris-o mai sus. Fiecare clasa contine atribute protected/private/public, sunt definiti constructori, metode de acces(setteri si getteri), precum si alte metode care m-au ajutat la designul sistemului de gestiune. 
   
-  **Initial**, sunt citite dintr-un fisier(data.txt) date despre angajati, acestia fiind adaugati in lista de angajati din AirportHenriCoanda. Restul de date se citesc de la tastatura si se tin memorate in colectii de date.
+## A doua parte a proiectului 
+Proiectului i se adauga 4 clase(**singleton**) de serviciu pentrus scrierea/citirea din fisiere CSV. In plus, este creata o clasa de serviciu tip audit care va realiza scrierea intr-un fisier CSV a fiecarei interogare/actiune apelata in Main, fiind insotita si de timestamp-ul acesteia.
+
