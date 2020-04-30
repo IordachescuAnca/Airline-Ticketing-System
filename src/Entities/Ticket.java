@@ -18,7 +18,7 @@ public class Ticket extends Document{
         this.price = price;
         this.from = from;
         this.to = to;
-        String patternDate = "MM-dd-yyyy HH:mm";
+        String patternDate = "MM-dd-yyyy";
         try{
             SimpleDateFormat dateFormat = new SimpleDateFormat(patternDate);
             this.dateFrom = dateFormat.parse(dateFrom);
@@ -58,4 +58,6 @@ public class Ticket extends Document{
     public Date getDateFrom() {return dateFrom;}
     public int getRow() {return this.row;}
     public char getCol(){return this.col;}
+
+    public String getTo() {return this.to;}
 }

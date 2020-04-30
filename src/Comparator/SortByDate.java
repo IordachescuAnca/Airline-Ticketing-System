@@ -1,4 +1,6 @@
-package Entities;
+package Comparator;
+
+import Entities.Flight;
 
 import java.util.Comparator;
 

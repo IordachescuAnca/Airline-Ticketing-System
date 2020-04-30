@@ -14,7 +14,7 @@ public class Flight {
     private String to;
     private Date dateFrom;
     private Date dateTo;
-    List<Ticket> clientTickets;
+    private List<Ticket> clientTickets;
 
     public Flight(String id, double price, String from, String to, String dateFrom, String dateTo, Airplane airplane) {
         this.id = id;
@@ -23,7 +23,7 @@ public class Flight {
         this.from = from;
         this.to = to;
 
-        String patternDate = "MM-dd-yyyy HH:mm";
+        String patternDate = "MM-dd-yyyy";
         try{
             SimpleDateFormat dateFormat = new SimpleDateFormat(patternDate);
             this.dateFrom = dateFormat.parse(dateFrom);
@@ -73,6 +73,8 @@ public class Flight {
     public void setDateTo(Date dateTo) {this.dateTo = dateTo;}
     public void setAirplane(Airplane airplane) {this.airplane = airplane;}
 
+    public void setClientTickets(List<Ticket> clientTickets) {this.clientTickets = clientTickets;}
+
     public String getId() {return this.id;}
     public Airplane getAirplane() {return airplane;}
     public double getPrice() {return this.price;}
@@ -80,6 +82,7 @@ public class Flight {
     public String getTo() {return this.to;}
     public Date getDateFrom() {return this.dateFrom;}
     public Date getDateTo() {return this.dateTo;}
+    public List<Ticket> getClientTickets() {return clientTickets;}
 
     @Override
     public String toString() {

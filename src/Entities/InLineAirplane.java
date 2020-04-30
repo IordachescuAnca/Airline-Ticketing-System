@@ -37,4 +37,12 @@ public class InLineAirplane extends Airplane {
             }
         }
     }
+
+    public int getCapacityBusiness() {
+        return capacityBusiness;
+    }
+
+    public void setCapacityBusiness(int capacityBusiness) {
+        this.capacityBusiness = capacityBusiness;
+    }
 }

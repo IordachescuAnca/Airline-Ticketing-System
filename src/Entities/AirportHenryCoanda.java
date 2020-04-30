@@ -3,6 +3,7 @@ package Entities;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import Comparator.SortByDate;
 
 public class AirportHenryCoanda { // SINGLETON
     private static AirportHenryCoanda singleInstance = null;
@@ -89,7 +90,7 @@ public class AirportHenryCoanda { // SINGLETON
 
     public void displayRunways(){
         for(Airplane a: this.runways.keySet()){
-            System.out.println("ID Airplane " + a.getType() +" - Runway: " + this.runways.get(a));
+            System.out.println("Airplane " + a.getType() +" - Runway: " + this.runways.get(a));
         }
     }
 
@@ -108,31 +109,50 @@ public class AirportHenryCoanda { // SINGLETON
     public void readEmployees(Scanner sc){
         int numberEmployees = sc.nextInt();
         for(int i = 0; i < numberEmployees; ++i){
-            Employee newEmployee = readEmployee(sc);
+            Employee newEmployee = readEmployee();
             this.addEmployee(newEmployee);
         }
     }
 
-    public Employee readEmployee(Scanner sc){
+    public Employee readEmployee(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Last Name:");
         String lastName = sc.nextLine();
+        System.out.println("First Name:");
         String firstName = sc.nextLine();
+        System.out.println("CNP:");
         String CNP = sc.nextLine();
+        System.out.println("Date birth:");
         String dateBirth = sc.nextLine();
+        System.out.println("Serie:");
         String serie = sc.nextLine();
+        System.out.println("Number:");
         String no = sc.nextLine();
+        System.out.println("Birth place:");
         String birthPlace = sc.nextLine();
+        System.out.println("Home adress:");
         String homeAdress = sc.nextLine();
+        System.out.println("Issued by:");
         String issuedBy = sc.nextLine();
+        System.out.println("Begin validity:");
         String beginValidity = sc.nextLine();
+        System.out.println("End validity:");
         String endValidity = sc.nextLine();
         IdentityCard IC = new IdentityCard(lastName, firstName, CNP, dateBirth, serie, no, birthPlace, homeAdress, issuedBy, beginValidity, endValidity);
 
+        System.out.println("Username:");
         String username = sc.nextLine();
+        System.out.println("Password:");
         String password = sc.nextLine();
+        System.out.println("Mail:");
         String email = sc.nextLine();
+        System.out.println("Phone number:");
         String phoneNumber = sc.nextLine();
+        System.out.println("Hire date:");
         String hireDate = sc.nextLine();
+        System.out.println("Job title:");
         String jobTitle = sc.nextLine();
+        System.out.println("Department:");
         String department = sc.nextLine();
         return new Employee(IC, username, password, email, phoneNumber, hireDate, jobTitle, department);
     }
@@ -357,4 +377,35 @@ public class AirportHenryCoanda { // SINGLETON
         }
     }
 
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
+    }
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(List<Client> clients) {
+        this.clients = clients;
+    }
+
+    public Map<Airplane, Integer> getRunways() {
+        return runways;
+    }
+
+    public void setRunways(Map<Airplane, Integer> runways) {
+        this.runways = runways;
+    }
 }

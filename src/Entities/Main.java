@@ -1,12 +1,28 @@
 package Entities;
 
+import FileServices.ClientFileService;
+import FileServices.EmployeeFileService;
+import FileServices.FlightFileService;
+import FileServices.RunwayFileService;
+
 import java.util.*;
 
 public class Main {
     public static void main(String[]args){
         AirportHenryCoanda Airport = AirportHenryCoanda.getInstance("Calea Bucurestilor nr.224 E");
-        String path = "C:\\Users\\iorda\\IdeaProjects\\PAO Project\\src\\Entities\\data.txt";
-        Airport.addDataBase(path);
+        Audit audit = new Audit();
+
+        EmployeeFileService employeeFile = EmployeeFileService.getInstance();
+        Airport.setEmployees(employeeFile.readEmployees());
+
+        ClientFileService clientFile = ClientFileService.getInstance();
+        Airport.setClients(clientFile.readClients());
+
+        RunwayFileService runwayFile = RunwayFileService.getInstance();
+        Airport.setRunways(runwayFile.readRunways());
+
+        FlightFileService flightFile = FlightFileService.getInstance();
+        Airport.setFlights(flightFile.readFlights());
 
         Scanner sc = new Scanner(System.in);
         while(true){
@@ -31,17 +47,43 @@ public class Main {
                         System.out.println("5. Display runways.");
                         System.out.println("6. Display clients");
                         System.out.println("7. Display employees");
-                        System.out.println("8. Exit.");
+                        System.out.println("8. Add employee.");
+                        System.out.println("9. Exit.");
 
                         int choiceEmployee = sc.nextInt();
-                        if(choiceEmployee == 1) Airport.addFlight();
-                        if(choiceEmployee == 2) Airport.removeFlight();
-                        if(choiceEmployee == 3) Airport.displayFlights();
-                        if(choiceEmployee == 4) Airport.addRunway();
-                        if(choiceEmployee == 5) Airport.displayRunways();
-                        if(choiceEmployee == 6) Airport.displayClients();
-                        if(choiceEmployee == 7) Airport.displayEmployees();
-                        if(choiceEmployee == 8) break;
+                        if(choiceEmployee == 1){
+                            Airport.addFlight();
+                            audit.writeAction("addFlight");
+                        }
+                        if(choiceEmployee == 2) {
+                            Airport.removeFlight();
+                            audit.writeAction("removeFlight");
+                        }
+                        if(choiceEmployee == 3){
+                            Airport.displayFlights();
+                            audit.writeAction("displayFlight");
+                        }
+                        if(choiceEmployee == 4){
+                            Airport.addRunway();
+                            audit.writeAction("addRunway");
+                        }
+                        if(choiceEmployee == 5){
+                            Airport.displayRunways();
+                            audit.writeAction("displayRunways");
+                        }
+                        if(choiceEmployee == 6) {
+                            Airport.displayClients();
+                            audit.writeAction("displayClients");
+                        }
+                        if(choiceEmployee == 7) {
+                            Airport.displayEmployees();
+                            audit.writeAction("displayEmployees");
+                        }
+                        if(choiceEmployee == 8){
+                            Airport.addEmployee(Airport.readEmployee());
+                            audit.writeAction("addEmployee");
+                        }
+                        if(choiceEmployee == 9) break;
                     }
                 }
             }
@@ -51,7 +93,7 @@ public class Main {
                     Scanner sc1 = new Scanner(System.in);
                     System.out.println("Menu - Client");
                     System.out.println("1. Buy ticket.");
-                    System.out.println("2. Cancel ticket.");
+                    System.out.println("2. Remove ticket.");
                     System.out.println("3. Display unavailable seats of a flight.");
                     System.out.println("4. Display the most popular flight at this moment.");
                     System.out.println("5. Display flights.");
@@ -62,24 +104,37 @@ public class Main {
                         System.out.println("Enter the Flight ID");
                         String flightID = sc1.nextLine();
                         Airport.buyTicket(actualClient, flightID);
+                        audit.writeAction("buyTicket");
                     }
                     if(choiceClient == 2){
                         System.out.println("Enter the Flight ID");
                         String flightID = sc1.nextLine();
                         Airport.removeTicket(actualClient, flightID);
+                        audit.writeAction("removeTicket");
                     }
                     if(choiceClient == 3){
                         System.out.println("Enter the Flight ID");
                         String flightID = sc1.nextLine();
                         Airport.unavailableSeats(flightID);
+                        audit.writeAction("unavailableSeats");
                     }
-                    if(choiceClient == 4) Airport.mostPopularandRecentFlight();
-                    if(choiceClient == 5) Airport.displayFlights();
+                    if(choiceClient == 4){
+                        Airport.mostPopularandRecentFlight();
+                        audit.writeAction("mostPopularandRecentFlight");
+                    }
+                    if(choiceClient == 5){
+                        Airport.displayFlights();
+                        audit.writeAction("displayFlights");
+                    }
                     if(choiceClient == 6) break;
                 }
             }
 
             if(choice == 3) break;
         }
+        employeeFile.updateEmployees(Airport.getEmployees());
+        clientFile.updateClients(Airport.getClients());
+        runwayFile.updateRunways(Airport.getRunways());
+        flightFile.updateFlights(Airport.getFlights());
     }
 }
