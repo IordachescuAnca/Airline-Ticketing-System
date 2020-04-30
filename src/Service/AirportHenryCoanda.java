@@ -1,9 +1,10 @@
-package Entities;
+package Service;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import Comparator.SortByDate;
+import Entities.*;
 
 public class AirportHenryCoanda { // SINGLETON
     private static AirportHenryCoanda singleInstance = null;
@@ -298,13 +299,13 @@ public class AirportHenryCoanda { // SINGLETON
             Flight actualFlight = this.flights.get(found);
             for(Seat s: actualAirplane.getSeats()){
                 if(s.getType() == typeSeat && s.getAvailability()){
-                    String dateBirth = new SimpleDateFormat("MM-dd-YYYY").format(cl.getIC().dateBirth);
+                    String dateBirth = new SimpleDateFormat("MM-dd-YYYY").format(cl.getIC().getDateBirth());
                     String dateFrom = new SimpleDateFormat("MM-dd-YYYY").format(actualFlight.getDateFrom());
 
                     double price = actualFlight.getPrice();
                     if(s.getType() == 'B') price *= price;
 
-                    Ticket newTicket = new Ticket(cl.getIC().getLastName(), cl.getIC().firstName, cl.getIC().getCNP(), dateBirth, price,
+                    Ticket newTicket = new Ticket(cl.getIC().getLastName(), cl.getIC().getLastName(), cl.getIC().getCNP(), dateBirth, price,
                             actualFlight.getFrom(), actualFlight.getTo(), dateFrom, s.getColumn(), s.getRow(), s.getType());
                     cl.setClientTicket(newTicket);
 
