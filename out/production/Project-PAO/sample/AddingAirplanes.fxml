@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NavigationBar">
+    <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+        <left>
+            <VBox prefHeight="500.0" prefWidth="157.0" style="-fx-background-color: #ffd699;" BorderPane.alignment="CENTER">
+                <children>
+                    <Button fx:id="home" mnemonicParsing="false" onAction="#goToHome" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="airplane" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToAirplane" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add airplane" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="addFlight" layoutX="10.0" layoutY="68.0" mnemonicParsing="false" onAction="#goToAddFlight" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add flight" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="removeFlight" layoutX="10.0" layoutY="122.0" mnemonicParsing="false" onAction="#goToRemoveFlight" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Remove flight" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="logOut" layoutX="10.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToLogOut" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Log out" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="deleteAccount" layoutX="10.0" layoutY="234.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Delete account" textFill="WHITE">
+                        <font>
+                            <Font name="Bodoni MT Bold" size="20.0" />
+                        </font>
+                    </Button>
+                </children>
+            </VBox>
+        </left>
+        <center>
+            <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="620.0" style="-fx-background-image: url(https://s.marketwatch.com/public/resources/images/MW-HE536_airpla_ZH_20190225131547.jpg);" BorderPane.alignment="CENTER">
+            <children>
+               <TextField fx:id="nameAirplane" layoutX="100.0" layoutY="50.0" prefWidth="200.0" promptText="Name Airplane" />
+               <TextField fx:id="company" layoutX="100.0" layoutY="90.0" prefWidth="200.0" promptText="Manufacturing Company" />
+               <TextField fx:id="type" layoutX="100.0" layoutY="130.0" prefWidth="200.0" promptText="Type" />
+               <TextField fx:id="nrRows" layoutX="100.0" layoutY="170.0" prefWidth="200.0" promptText="Number Rows" />
+               <TextField fx:id="nrColumns" layoutX="100.0" layoutY="210.0" prefWidth="200.0" promptText="Number Columns" />
+               <TextField fx:id="businessCapacity" layoutX="100.0" layoutY="250.0" prefWidth="200.0" promptText="Business capacity" />
+               <Button fx:id="AddAirplanesToDB" layoutX="158.0" layoutY="291.0" mnemonicParsing="false" onAction="#addingAirplanesToDb" text="Add airplane" />
+            </children></AnchorPane>
+        </center>
+    </BorderPane>
+</AnchorPane>

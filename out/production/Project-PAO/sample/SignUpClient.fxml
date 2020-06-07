@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="424.0" prefWidth="646.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUpClient">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="801.0">
+         <left>
+            <Pane prefHeight="500.0" prefWidth="334.0" style="-fx-background-color: linear-gradient(to bottom left, #FFFFFF, #33adff);" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <Pane prefHeight="500.0" prefWidth="424.0" style="-fx-background-color: #e6faff;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="firstName" layoutX="150.0" layoutY="100.0" prefWidth="200.0" promptText="First Name" />
+                  <TextField fx:id="lastName" layoutX="150.0" layoutY="140.0" prefWidth="200.0" promptText="Last Name" />
+                  <TextField fx:id="email" layoutX="150.0" layoutY="180.0" prefWidth="200.0" promptText="Email" />
+                  <TextField fx:id="phoneNumber" layoutX="150.0" layoutY="220.0" prefWidth="200.0" promptText="Phone Number" />
+                  <TextField fx:id="dateBirth" layoutX="150.0" layoutY="260.0" prefWidth="200.0" promptText="Date Birth" />
+                  <PasswordField fx:id="password" layoutX="150.0" layoutY="300.0" prefWidth="200.0" promptText="Password" />
+                  <Button fx:id="signUpClient" layoutX="215.0" layoutY="340.0" mnemonicParsing="false" onAction="#signUpClient" text="Sign up!" />
+                  <ImageView fx:id="backLogInClient" fitHeight="37.0" fitWidth="37.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backtoLogInClient" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://static.thenounproject.com/png/1991936-200.png" />
+                     </image></ImageView>
+                  <Label fx:id="label" layoutX="165.0" layoutY="43.0" prefHeight="30.0" prefWidth="158.0" textAlignment="CENTER" textFill="#5d87d5">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelClient" layoutX="206.0" layoutY="50.0" text=" " />
+               </children></Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

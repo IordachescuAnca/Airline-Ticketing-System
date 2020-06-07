@@ -1,94 +1,131 @@
 package Entities;
 
+import Entities.Airplanes.LowCostAirplane;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class Flight {
-    private String id;
-    private Airplane airplane;
-    private double price;
-    private String from;
-    private String to;
-    private Date dateFrom;
-    private Date dateTo;
-    private List<Ticket> clientTickets;
+    private Integer airplaneId;
+    private Double priceStandard;
+    private String fromLocation;
+    private String toLocation;
+    private Date dateFromLocation;
+    private Date dateToLocation;
 
-    public Flight(String id, double price, String from, String to, String dateFrom, String dateTo, Airplane airplane) {
-        this.id = id;
-        this.airplane = airplane.copy();
-        this.price = price;
-        this.from = from;
-        this.to = to;
+    public Flight( Integer airplaneId, Double priceStandard, String fromLocation, String toLocation, Date dateFromLocation, Date dateToLocation) {
+        this.airplaneId = airplaneId;
+        this.priceStandard = priceStandard;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
+        this.dateFromLocation = dateFromLocation;
+        this.dateToLocation = dateToLocation;
+    }
 
-        String patternDate = "MM-dd-yyyy";
+    public void writeData(){
+        String connectionURL = "jdbc:sqlserver://pao-project.database.windows.net:1433;database=PAO-db;user=anca@pao-project;password=qwer1234!@#$;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+        Connection connection;
         try{
-            SimpleDateFormat dateFormat = new SimpleDateFormat(patternDate);
-            this.dateFrom = dateFormat.parse(dateFrom);
-        }
-        catch(ParseException exception){
-            this.dateFrom = null;
-        }
-        try{
-            SimpleDateFormat dateFormat = new SimpleDateFormat(patternDate);
-            this.dateTo = dateFormat.parse(dateTo);
-        }
-        catch(ParseException exception){
-            this.dateTo = null;
-        }
-        this.clientTickets = new ArrayList<Ticket>();
-    }
+            connection = DriverManager.getConnection(connectionURL);
+            Statement stmt = connection.createStatement();
+            DateFormat format = new SimpleDateFormat("MM-dd-yyyy HH:mm", Locale.FRENCH);
+            String strFromLocation= format.format(this.dateFromLocation);
+            String strToLocation = format.format(this.dateToLocation);
+            stmt.executeUpdate("INSERT INTO dbo.FLIGHTS (PriceStandard, fromLocation, toLocation, dateFromLocation, dateToLocation,  Airplane_id) "
+                    + "VALUES ( " + this.priceStandard + " , '" + this.fromLocation + "' , '" + this.toLocation + "' , '" + strFromLocation + "' , '" + strToLocation + "' , " + this.airplaneId  +  " )");
 
-    public Flight copy(){
-        String dateF = new SimpleDateFormat("MM-dd-YYYY").format(dateFrom);
-        String dateT = new SimpleDateFormat("MM-dd-YYYY").format(dateTo);
-        return new Flight(id, price, from, to, dateF, dateT, airplane);
-    }
 
-    public void addTicket(Ticket newTicket){
-        this.clientTickets.add(newTicket);
-        this.airplane.setDisponibilitySeat(newTicket.getRow(), newTicket.getCol(), false);
-    }
-
-    public void removeTicket(Ticket oldTicket){
-        this.clientTickets.remove(oldTicket);
-        this.airplane.setDisponibilitySeat(oldTicket.getRow(), oldTicket.getCol(), true);
-    }
-
-    public void displayUnavailableSeats(){
-        for(Seat seat: this.airplane.getSeats()){
-            if(!seat.getAvailability()){
-                System.out.println(seat.toString());
-            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
-    public void setId(String id) {this.id = id;}
-    public void setPrice(double price) {this.price = price;}
-    public void setFrom(String from) {this.from = from;}
-    public void setTo(String to) {this.to = to;}
-    public void setDateFrom(Date dateFrom) {this.dateFrom = dateFrom;}
-    public void setDateTo(Date dateTo) {this.dateTo = dateTo;}
-    public void setAirplane(Airplane airplane) {this.airplane = airplane;}
+    public static Flight readData(Integer airplaneId){
+        Scanner scanner = new Scanner(System.in);
 
-    public void setClientTickets(List<Ticket> clientTickets) {this.clientTickets = clientTickets;}
+        System.out.println("Enter price:");
+        Double price = scanner.nextDouble();
+        scanner.nextLine();
 
-    public String getId() {return this.id;}
-    public Airplane getAirplane() {return airplane;}
-    public double getPrice() {return this.price;}
-    public String getFrom() {return this.from;}
-    public String getTo() {return this.to;}
-    public Date getDateFrom() {return this.dateFrom;}
-    public Date getDateTo() {return this.dateTo;}
-    public List<Ticket> getClientTickets() {return clientTickets;}
+        System.out.println("Location From:");
+        String fromLocation = scanner.nextLine();
 
-    @Override
-    public String toString() {
-        String information = "Flight ID: " + this.id + "\nAirplane: " + this.airplane.getType()
-                + "\nCapacity: " + this.airplane.getCapacity() + "\n";
-        information += this.airplane.toString();
-        return information;
+        System.out.println("Location To:");
+        String toLocation = scanner.nextLine();
+
+        System.out.println("Date location from:");
+        String dateLocationFrom = scanner.nextLine();
+
+        System.out.println("Date location to:");
+        String dateLocationTo = scanner.nextLine();
+
+        DateFormat format = new SimpleDateFormat("MM-dd-yyyy HH:mm", Locale.FRENCH);
+        Date dateFrom = null;
+        Date dateTo = null;
+        try {
+            dateFrom = format.parse(dateLocationFrom);
+            dateTo = format.parse(dateLocationTo);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return new Flight(airplaneId, price, fromLocation, toLocation, dateFrom, dateTo);
     }
+
+    public Integer getAirplaneId() {
+        return airplaneId;
+    }
+
+    public Double getPriceStandard() {
+        return priceStandard;
+    }
+
+    public String getFromLocation() {
+        return fromLocation;
+    }
+
+    public String getToLocation() {
+        return toLocation;
+    }
+
+    public Date getDateFromLocation() {
+        return dateFromLocation;
+    }
+
+    public Date getDateToLocation() {
+        return dateToLocation;
+    }
+
+    public void setAirplaneId(Integer airplaneId) {
+        this.airplaneId = airplaneId;
+    }
+
+    public void setPriceStandard(Double priceStandard) {
+        this.priceStandard = priceStandard;
+    }
+
+    public void setFromLocation(String fromLocation) {
+        this.fromLocation = fromLocation;
+    }
+
+    public void setToLocation(String toLocation) {
+        this.toLocation = toLocation;
+    }
+
+    public void setDateFromLocation(Date dateFromLocation) {
+        this.dateFromLocation = dateFromLocation;
+    }
+
+    public void setDateToLocation(Date dateToLocation) {
+        this.dateToLocation = dateToLocation;
+    }
+
 }

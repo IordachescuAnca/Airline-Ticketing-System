@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.NavigationBar">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <left>
+      <VBox prefHeight="500.0" prefWidth="157.0" style="-fx-background-color: #ffd699;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="home" mnemonicParsing="false" onAction="#goToHome" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="airplane" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#goToAirplane" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add airplane" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="addFlight" layoutX="10.0" layoutY="68.0" mnemonicParsing="false" onAction="#goToAddFlight" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Add flight" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="removeFlight" layoutX="10.0" layoutY="122.0" mnemonicParsing="false" onAction="#goToRemoveFlight" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Remove flight" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="logOut" layoutX="10.0" layoutY="178.0" mnemonicParsing="false" onAction="#goToLogOut" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Log out" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="deleteAccount" layoutX="10.0" layoutY="234.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="56.0" prefWidth="159.0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0px 0px 2px 0px;" text="Delete account" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="ap" prefHeight="500.0" prefWidth="620.0" style="-fx-background-image: url(https://s.marketwatch.com/public/resources/images/MW-HE536_airpla_ZH_20190225131547.jpg);" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="79.0" prefHeight="93.0" prefWidth="299.0" text="When you get into an airplane" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="27.0" prefHeight="93.0" prefWidth="299.0" text="by yourself and take off," textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="56.0" prefHeight="93.0" prefWidth="299.0" text="you find yourself in this lovely," textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="86.0" prefHeight="93.0" prefWidth="299.0" text="three-dimensional world where" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="113.0" prefHeight="93.0" prefWidth="299.0" text="you can go in any direction." textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="150.0" prefHeight="93.0" prefWidth="299.0" text="There is no feeling" textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="61.0" layoutY="170.0" prefHeight="93.0" prefWidth="299.0" text="any more exciting than that." textAlignment="JUSTIFY" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font name="Bodoni MT Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
+</AnchorPane>

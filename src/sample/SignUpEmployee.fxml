@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SignUpEmployee">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="801.0">
+         <left>
+            <Pane prefHeight="500.0" prefWidth="334.0" style="-fx-background-color: linear-gradient(to bottom left, #FFFFFF, #33adff);" BorderPane.alignment="CENTER" />
+         </left>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #e6faff;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#goToLogInEmployee" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="https://static.thenounproject.com/png/1991936-200.png" />
+                     </image></ImageView>
+                  <TextField fx:id="email" layoutX="150.0" layoutY="120.0" prefWidth="200.0" promptText="Email" />
+                  <TextField fx:id="lastName" layoutX="150.0" layoutY="80.0" prefWidth="200.0" promptText="Last Name" />
+                  <TextField fx:id="firstName" layoutX="150.0" layoutY="40.0" prefWidth="200.0" promptText="First Name" />
+                  <PasswordField fx:id="password" layoutX="150.0" layoutY="360.0" prefWidth="200.0" promptText="Password" />
+                  <TextField fx:id="phoneNumber" layoutX="150.0" layoutY="160.0" prefWidth="200.0" promptText="Phone number" />
+                  <TextField fx:id="dateHire" layoutX="150.0" layoutY="240.0" prefWidth="200.0" promptText="Date hire" />
+                  <TextField fx:id="jobTitle" layoutX="150.0" layoutY="280.0" prefWidth="200.0" promptText="Job Title" />
+                  <TextField fx:id="department" layoutX="150.0" layoutY="320.0" prefWidth="200.0" promptText="Department" />
+                  <Button fx:id="signUpEmployee" layoutX="215.0" layoutY="400.0" mnemonicParsing="false" onAction="#signUpEmployeeAccount" text="Sign up!" />
+                  <TextField fx:id="dateBirth" layoutX="150.0" layoutY="200.0" prefWidth="200.0" promptText="Date birth" />
+               </children></Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

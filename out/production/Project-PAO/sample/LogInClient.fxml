@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LogInClient">
+    <children>
+        <BorderPane prefHeight="500.0" prefWidth="801.0">
+            <left>
+                <Pane prefHeight="500.0" prefWidth="334.0" style="-fx-background-color: linear-gradient(to bottom left, #FFFFFF, #33adff);" BorderPane.alignment="CENTER" />
+            </left>
+            <center>
+                <Pane prefHeight="500.0" prefWidth="474.0" style="-fx-background-color: #e6faff;" BorderPane.alignment="CENTER">
+                    <children>
+                        <TextField fx:id="usernameClient" layoutX="120.0" layoutY="140.0" prefHeight="40.0" prefWidth="250.0" promptText="Username..." />
+                        <PasswordField fx:id="passwordClient" layoutX="120.0" layoutY="210.0" prefHeight="40.0" prefWidth="250.0" promptText="Password...." />
+                        <Button fx:id="SignInClient" layoutX="282.0" layoutY="282.0" mnemonicParsing="false" onMouseClicked="#goToHomeClient" prefHeight="38.0" prefWidth="88.0" style="-fx-background-color: #99d6ff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-image-width: 2; -fx-border-color: #ffffff;" text="Sign in" textFill="#faf2f2">
+                            <font>
+                                <Font name="Bodoni MT Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="goToSignUpClient" layoutX="110.0" layoutY="355.0" mnemonicParsing="false" onAction="#goSignUpClient" prefHeight="35.0" prefWidth="270.0" style="-fx-background-color: #99d6ff; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-image-width: 2; -fx-border-color: #ffffff;" text="Don't have an account? Sign up!" textFill="WHITE">
+                            <font>
+                                <Font name="Bodoni MT Bold" size="14.0" />
+                            </font></Button>
+                        <Label layoutX="133.0" layoutY="66.0" text="Welcome back!" textFill="#99d6ff">
+                            <font>
+                                <Font name="Bodoni MT Bold" size="32.0" />
+                            </font>
+                        </Label>
+                        <ImageView fx:id="imgBack" fitHeight="37.0" fitWidth="41.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="https://static.thenounproject.com/png/1991936-200.png" />
+                            </image>
+                        </ImageView>
+                    </children></Pane>
+            </center></BorderPane>
+    </children>
+</AnchorPane>

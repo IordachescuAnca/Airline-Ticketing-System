@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="500.0" prefWidth="800.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <BorderPane prefHeight="593.0" prefWidth="801.0" style="-fx-background-image: url(&quot;https://i0.wp.com/nikkiboluso.com/wp-content/uploads/2019/07/plantsafetey-thumbnail.jpg?resize=800%2C522&amp;ssl=1&quot;);">
+         <left>
+            <Pane prefHeight="501.0" prefWidth="281.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="36.0" layoutY="32.0" prefHeight="58.0" prefWidth="210.0" text="SALUTE THE SKY" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="43.0" layoutY="74.0" text="“Where will tomorrow take you?”" textFill="#faf8f8">
+                     <font>
+                        <Font name="Bodoni MT Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnEmployee" layoutX="63.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickEmployee" style="-fx-background-color: #85B3D1FF; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-background-radius: 10; -fx-border-radius: 10;" text="Employee" />
+                  <Button fx:id="btnClient" layoutX="155.0" layoutY="110.0" mnemonicParsing="false" onAction="#clickClient" style="-fx-background-color: #85B3D1FF; -fx-text-fill: #ffffff; -fx-border-color: #ffffff; -fx-border-radius: 10; -fx-background-radius: 10;" text="Client" />
+               </children>
+            </Pane>
+         </left>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</GridPane>
